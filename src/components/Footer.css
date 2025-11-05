@@ -1,0 +1,166 @@
+.footer {
+  background: linear-gradient(135deg, rgba(139, 62, 33, 0.95) 0%, rgba(184, 93, 43, 0.95) 100%);
+  color: var(--color-cream);
+  padding: 3rem 0 1rem;
+  margin-top: 4rem;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.footer-section h3,
+.footer-section h4 {
+  margin: 0 0 1rem 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.footer-section p {
+  margin: 0;
+  opacity: 0.9;
+  line-height: 1.6;
+}
+
+.footer-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.footer-nav a {
+  color: var(--color-cream);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  padding: 0.25rem 0;
+}
+
+.footer-nav a:hover {
+  padding-left: 0.5rem;
+  opacity: 0.8;
+}
+
+.social-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.social-links a {
+  color: var(--color-cream);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  padding: 0.5rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.social-links a:hover {
+  padding-left: 0.5rem;
+  transform: translateX(5px);
+}
+
+.footer-bottom {
+  max-width: 1200px;
+  margin: 2rem auto 0;
+  padding: 1.5rem 2rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  text-align: center;
+}
+
+.footer-bottom p {
+  margin: 0;
+  opacity: 0.8;
+  font-size: 0.9rem;
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .footer-container {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+  }
+}
+
+/* Móvil */
+@media (max-width: 768px) {
+  .footer {
+    padding: 2.5rem 0 1rem;
+    margin-top: 3rem;
+  }
+
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 0 1.5rem;
+  }
+
+  .footer-section h3,
+  .footer-section h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .footer-section p {
+    font-size: 0.95rem;
+  }
+
+  .footer-nav a,
+  .social-links a {
+    font-size: 0.95rem;
+    padding: 0.5rem 0;
+  }
+
+  .footer-bottom {
+    padding: 1.5rem 1.5rem 0;
+  }
+
+  .footer-bottom p {
+    font-size: 0.85rem;
+  }
+}
+
+/* Móvil pequeño */
+@media (max-width: 480px) {
+  .footer {
+    padding: 2rem 0 1rem;
+    margin-top: 2.5rem;
+  }
+
+  .footer-container {
+    padding: 0 1rem;
+    gap: 1.5rem;
+  }
+
+  .footer-section h3,
+  .footer-section h4 {
+    font-size: 1rem;
+  }
+
+  .footer-section p {
+    font-size: 0.9rem;
+  }
+
+  .footer-nav {
+    gap: 0.5rem;
+  }
+
+  .social-links {
+    gap: 0.5rem;
+  }
+
+  .footer-bottom {
+    padding: 1.25rem 1rem 0;
+  }
+
+  .footer-bottom p {
+    font-size: 0.8rem;
+  }
+}
+

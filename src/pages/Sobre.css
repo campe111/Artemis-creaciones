@@ -1,0 +1,267 @@
+.sobre {
+  min-height: calc(100vh - 200px);
+}
+
+.sobre-header {
+  background: linear-gradient(135deg, rgba(184, 93, 43, 0.2) 0%, rgba(139, 62, 33, 0.2) 100%);
+  padding: 4rem 0 3rem;
+  text-align: center;
+}
+
+.sobre-header h1 {
+  font-size: 3rem;
+  color: var(--color-dark-brown);
+  margin: 0 0 0.5rem 0;
+  font-weight: 600;
+}
+
+.sobre-header .subtitle {
+  font-size: 1.3rem;
+  color: var(--color-dark-brown);
+  opacity: 0.9;
+  font-style: italic;
+  margin: 0;
+}
+
+.sobre-content {
+  padding: 4rem 0;
+  background: var(--color-cream);
+}
+
+.sobre-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  margin-bottom: 5rem;
+}
+
+.sobre-section.reverse {
+  direction: rtl;
+}
+
+.sobre-section.reverse > * {
+  direction: ltr;
+}
+
+.sobre-text h2 {
+  font-size: 2.2rem;
+  color: var(--color-dark-brown);
+  margin: 0 0 1.5rem 0;
+  font-weight: 600;
+}
+
+.sobre-text p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--color-dark-brown);
+  margin: 0 0 1.5rem 0;
+  opacity: 0.9;
+}
+
+.sobre-text p:last-child {
+  margin-bottom: 0;
+}
+
+.sobre-image {
+  width: 100%;
+  height: 400px;
+  background: linear-gradient(135deg, rgba(184, 93, 43, 0.15) 0%, rgba(139, 62, 33, 0.15) 100%);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.image-placeholder {
+  font-size: 6rem;
+  opacity: 0.6;
+}
+
+.sobre-section.valores {
+  grid-template-columns: 1fr;
+  text-align: center;
+  margin-bottom: 0;
+}
+
+.sobre-section.valores h2 {
+  margin-bottom: 3rem;
+}
+
+.valores-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2.5rem;
+}
+
+.valor-card {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.valor-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.valor-icon {
+  font-size: 3.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.valor-card h3 {
+  font-size: 1.5rem;
+  color: var(--color-dark-brown);
+  margin: 0 0 1rem 0;
+  font-weight: 600;
+}
+
+.valor-card p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--color-dark-brown);
+  margin: 0;
+  opacity: 0.85;
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .sobre-section {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .sobre-section.reverse {
+    direction: ltr;
+  }
+
+  .sobre-image {
+    height: 350px;
+  }
+
+  .valores-grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+  }
+}
+
+/* Móvil */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1.5rem;
+  }
+
+  .sobre-header {
+    padding: 3rem 0 2rem;
+  }
+
+  .sobre-header h1 {
+    font-size: 2.25rem;
+  }
+
+  .sobre-header .subtitle {
+    font-size: 1.1rem;
+  }
+
+  .sobre-content {
+    padding: 3rem 0;
+  }
+
+  .sobre-section {
+    margin-bottom: 3rem;
+    gap: 2rem;
+  }
+
+  .sobre-text h2 {
+    font-size: 1.75rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .sobre-text p {
+    font-size: 1rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .sobre-image {
+    height: 280px;
+  }
+
+  .image-placeholder {
+    font-size: 3.5rem;
+  }
+
+  .valores-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .valor-card {
+    padding: 2rem;
+  }
+}
+
+/* Móvil pequeño */
+@media (max-width: 480px) {
+  .container {
+    padding: 0 1rem;
+  }
+
+  .sobre-header {
+    padding: 2.5rem 0 1.5rem;
+  }
+
+  .sobre-header h1 {
+    font-size: 1.75rem;
+  }
+
+  .sobre-header .subtitle {
+    font-size: 1rem;
+  }
+
+  .sobre-content {
+    padding: 2.5rem 0;
+  }
+
+  .sobre-section {
+    margin-bottom: 2.5rem;
+  }
+
+  .sobre-text h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .sobre-text p {
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+  }
+
+  .sobre-image {
+    height: 220px;
+  }
+
+  .image-placeholder {
+    font-size: 3rem;
+  }
+
+  .valores-grid {
+    gap: 1.5rem;
+  }
+
+  .valor-card {
+    padding: 1.5rem;
+  }
+
+  .valor-icon {
+    font-size: 3rem;
+  }
+
+  .valor-card h3 {
+    font-size: 1.25rem;
+  }
+}
+
