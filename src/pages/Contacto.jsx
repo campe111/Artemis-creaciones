@@ -64,12 +64,12 @@ const Contacto = () => {
                   <div>
                     <h3>WhatsApp</h3>
                     <a 
-                      href="https://wa.me/228456932" 
+                      href="https://wa.me/2284569324" 
                       target="_blank" 
                       rel="noopener noreferrer"
                       style={{ color: 'inherit', textDecoration: 'none' }}
                     >
-                      <p>228456932</p>
+                      <p>+5492284569324</p>
                     </a>
                   </div>
                 </div>
@@ -103,7 +103,7 @@ const Contacto = () => {
                     📘 Facebook
                   </a>
                   <a 
-                    href="https://wa.me/228456932" 
+                    href="https://wa.me/2284569324 " 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="social-btn"
@@ -151,7 +151,7 @@ const Contacto = () => {
                     name="telefono"
                     value={formData.telefono}
                     onChange={handleChange}
-                    placeholder="300 123 4567"
+                    placeholder="011 1234-5678"
                   />
                 </div>
 
