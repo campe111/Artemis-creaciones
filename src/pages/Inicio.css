@@ -46,7 +46,7 @@
   font-size: 1.75rem;
   font-weight: 400;
   margin: 0 0 1.5rem 0;
-  color: var(--color-white);
+  color: white;
   font-style: italic;
 }
 
@@ -54,7 +54,7 @@
   font-size: 1.15rem;
   line-height: 1.8;
   margin: 0 0 2.5rem 0;
-  color: var(--color-white);
+  color: white;
   opacity: 0.9;
 }
 
