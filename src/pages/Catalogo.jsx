@@ -26,7 +26,7 @@ const Catalogo = () => {
     { id: 17, nombre: 'Combo Artesanal 17', categoria: 'combos', imagen: '/images/producto-17.jpeg' },
   ]
 
-  const whatsappNumber = '228456932'
+  const whatsappNumber = '+5492284569324'
 
   const categorias = ['todos', 'combos']
 
