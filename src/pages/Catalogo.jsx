@@ -41,7 +41,6 @@ const Catalogo = () => {
     { id: 32, nombre: 'Combo Artesanal 32', categoria: 'combos', imagen: '/images/producto-34.jpeg', descripcion: 'Descripción del producto 32' },
     { id: 33, nombre: 'Combo Artesanal 33', categoria: 'combos', imagen: '/images/producto-35.jpeg', descripcion: 'Descripción del producto 33' },
     { id: 34, nombre: 'Combo Artesanal 34', categoria: 'combos', imagen: '/images/producto-36.jpeg', descripcion: 'Descripción del producto 34' },
-    { id: 35, nombre: 'Combo Artesanal 35', categoria: 'combos', imagen: '/images/producto-38.jpeg', descripcion: 'Descripción del producto 35' },
   ]
 
   const whatsappNumber = '+5492284569324'

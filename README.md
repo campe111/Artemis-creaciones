@@ -1,6 +1,6 @@
 # 🌿 Artemis - Creaciones Artesanales en Yeso
 
-Sitio web para el emprendimiento **Artemis**, dedicado a la exhibición y venta de piezas artesanales en yeso. Este proyecto busca transmitir la estética, el cuidado y la identidad detrás de cada creación, combinando diseño visual con funcionalidad web.
+Sitio web para el emprendimiento ARTEMIS , dedicado a la exhibición y venta de piezas artesanales en yeso. Este proyecto busca transmitir la estética, el cuidado y la identidad detrás de cada creación, combinando diseño visual con funcionalidad web.
 
 ---
 
