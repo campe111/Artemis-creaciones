@@ -53,7 +53,9 @@ const Contacto = () => {
                   <div className="contacto-icon">📧</div>
                   <div>
                     <h3>Email</h3>
-                    <p>artemis@creaciones.com</p>
+                    <a href="mailto:artemisolavarria@gmail.com" style={{ color: 'inherit', textDecoration: 'none' }}>
+                      <p>artemisolavarria@gmail.com</p>
+                    </a>
                   </div>
                 </div>
 
@@ -61,7 +63,14 @@ const Contacto = () => {
                   <div className="contacto-icon">📱</div>
                   <div>
                     <h3>WhatsApp</h3>
-                    <p>+57 300 123 4567</p>
+                    <a 
+                      href="https://wa.me/2284569324" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      style={{ color: 'inherit', textDecoration: 'none' }}
+                    >
+                      <p>+5492284569324</p>
+                    </a>
                   </div>
                 </div>
 
@@ -69,7 +78,7 @@ const Contacto = () => {
                   <div className="contacto-icon">📍</div>
                   <div>
                     <h3>Ubicación</h3>
-                    <p>Colombia</p>
+                    <p>Olavarría, provincia de Buenos Aires, Argentina</p>
                   </div>
                 </div>
               </div>
@@ -78,7 +87,7 @@ const Contacto = () => {
                 <h3>Síguenos en redes sociales</h3>
                 <div className="social-buttons">
                   <a 
-                    href="https://instagram.com" 
+                    href="https://www.instagram.com/artemisolavarria?igsh=MTQ1YTl4MGduMTdicg==" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="social-btn"
@@ -86,7 +95,7 @@ const Contacto = () => {
                     📷 Instagram
                   </a>
                   <a 
-                    href="https://facebook.com" 
+                    href="https://www.facebook.com/share/1Gu7cVHHdR/" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="social-btn"
@@ -94,7 +103,7 @@ const Contacto = () => {
                     📘 Facebook
                   </a>
                   <a 
-                    href="https://whatsapp.com" 
+                    href="https://wa.me/2284569324 " 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="social-btn"
@@ -142,7 +151,7 @@ const Contacto = () => {
                     name="telefono"
                     value={formData.telefono}
                     onChange={handleChange}
-                    placeholder="300 123 4567"
+                    placeholder="011 1234-5678"
                   />
                 </div>
 

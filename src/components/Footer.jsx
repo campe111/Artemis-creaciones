@@ -21,10 +21,19 @@ const Footer = () => {
         </div>
 
         <div className="footer-section">
+          <h4>Contacto</h4>
+          <div className="footer-contact">
+            <p>📧 artemisolavarria@gmail.com</p>
+            <p>📱 <a href="https://wa.me/228456932" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>228456932</a></p>
+            <p>📍 Olavarría, provincia de Buenos Aires, Argentina</p>
+          </div>
+        </div>
+
+        <div className="footer-section">
           <h4>Redes Sociales</h4>
           <div className="social-links">
             <a 
-              href="https://instagram.com" 
+              href="https://www.instagram.com/artemisolavarria?igsh=MTQ1YTl4MGduMTdicg==" 
               target="_blank" 
               rel="noopener noreferrer"
               aria-label="Instagram"
@@ -32,7 +41,7 @@ const Footer = () => {
               📷 Instagram
             </a>
             <a 
-              href="https://facebook.com" 
+              href="https://www.facebook.com/share/1Gu7cVHHdR/" 
               target="_blank" 
               rel="noopener noreferrer"
               aria-label="Facebook"
@@ -40,7 +49,7 @@ const Footer = () => {
               📘 Facebook
             </a>
             <a 
-              href="https://whatsapp.com" 
+              href="https://wa.me/228456932" 
               target="_blank" 
               rel="noopener noreferrer"
               aria-label="WhatsApp"
