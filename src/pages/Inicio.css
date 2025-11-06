@@ -9,10 +9,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, rgba(184, 93, 43, 0.3) 0%, rgba(139, 62, 33, 0.3) 100%),
-              url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23F8D8B0" width="1200" height="600"/><path d="M0,300 Q300,200 600,300 T1200,300" stroke="%23E0813C" stroke-width="2" fill="none" opacity="0.3"/></svg>');
+  background: linear-gradient(135deg, rgba(184, 93, 43, 0.4) 0%, rgba(139, 62, 33, 0.5) 100%),
+              url('/images/descarga (8).jpeg');
   background-size: cover;
   background-position: center;
+  background-attachment: fixed;
   overflow: hidden;
 }
 
@@ -22,7 +23,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: radial-gradient(circle at center, rgba(184, 93, 43, 0.2) 0%, rgba(139, 62, 33, 0.4) 100%);
+  background: radial-gradient(circle at center, rgba(184, 93, 43, 0.3) 0%, rgba(139, 62, 33, 0.6) 100%);
 }
 
 .hero-content {
@@ -208,6 +209,7 @@
     height: 70vh;
     min-height: 400px;
     padding: 1rem;
+    background-attachment: scroll;
   }
 
   .hero-content {
@@ -284,6 +286,7 @@
   .hero {
     height: 65vh;
     min-height: 350px;
+    background-attachment: scroll;
   }
 
   .hero-content {
