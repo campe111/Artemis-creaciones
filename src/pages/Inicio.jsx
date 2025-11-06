@@ -2,9 +2,16 @@ import { Link } from 'react-router-dom'
 import './Inicio.css'
 
 const Inicio = () => {
+  const heroImageUrl = encodeURI('/images/descarga (8).jpeg')
+  
   return (
     <div className="inicio">
-      <section className="hero">
+      <section 
+        className="hero"
+        style={{
+          backgroundImage: `linear-gradient(135deg, rgba(184, 93, 43, 0.4) 0%, rgba(139, 62, 33, 0.5) 100%), url('${heroImageUrl}')`
+        }}
+      >
         <div className="hero-overlay"></div>
         <div className="hero-content">
           <h1 className="hero-title">Artemis</h1>
