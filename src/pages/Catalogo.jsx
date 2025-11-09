@@ -83,6 +83,7 @@ const Catalogo = () => {
                 <div className="producto-info">
                   <h3>{producto.nombre}</h3>
                   <p className="producto-categoria">{producto.categoria}</p>
+                  <p className="producto-descripcion">{producto.descripcion}</p>
                   <a 
                     href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(`Hola, me interesa consultar sobre ${producto.nombre}`)}`}
                     target="_blank"
