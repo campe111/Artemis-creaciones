@@ -1,6 +1,12 @@
 import { useState } from 'react'
 import './Contacto.css'
 
+/*
+Componente Contacto:
+- Controla los datos del formulario y su envío.
+- Presenta información de contacto, redes sociales y formulario.
+- Organiza la página con cabecera, columnas de contenido y mensajes.
+*/
 const Contacto = () => {
   const [formData, setFormData] = useState({
     nombre: '',
@@ -18,7 +24,6 @@ const Contacto = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    // Aquí se puede agregar la lógica para enviar el formulario
     console.log('Formulario enviado:', formData)
     alert('¡Gracias por tu mensaje! Te contactaremos pronto.')
     setFormData({

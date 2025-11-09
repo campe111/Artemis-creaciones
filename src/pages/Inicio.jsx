@@ -2,6 +2,12 @@ import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import './Inicio.css'
 
+/*
+Componente Inicio:
+- Configura el carrusel principal con imágenes destacadas.
+- Gestiona el estado y la navegación manual/automática del slider.
+- Renderiza secciones de hero, beneficios y llamado a la acción.
+*/
 const Inicio = () => {
   const heroImages = useMemo(
     () =>

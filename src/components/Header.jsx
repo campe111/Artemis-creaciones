@@ -2,6 +2,12 @@ import { Link, useLocation } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import './Header.css'
 
+/*
+Componente Header:
+- Muestra la identidad de la marca y navegación principal.
+- Controla el menú responsive bloqueando el scroll cuando está abierto.
+- Cierra automáticamente el menú al cambiar de ruta.
+*/
 const Header = () => {
   const location = useLocation()
   const [menuOpen, setMenuOpen] = useState(false)
@@ -18,7 +24,6 @@ const Header = () => {
     setMenuOpen(false)
   }
 
-  // Bloquear scroll cuando el menú está abierto
   useEffect(() => {
     if (menuOpen) {
       document.body.style.overflow = 'hidden'
@@ -26,13 +31,11 @@ const Header = () => {
       document.body.style.overflow = 'unset'
     }
 
-    // Cleanup cuando el componente se desmonte o el menú se cierre
     return () => {
       document.body.style.overflow = 'unset'
     }
   }, [menuOpen])
 
-  // Cerrar menú al cambiar de ruta
   useEffect(() => {
     setMenuOpen(false)
   }, [location.pathname])

@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect, useCallback } from 'react'
+import { useState, useMemo } from 'react'
 import './Catalogo.css'
 
 const PRODUCTOS = [
@@ -34,10 +34,15 @@ const PRODUCTOS = [
   { id: 30, nombre: 'Combo Zen Interior', imagen: '/images/producto-30.jpeg', descripcion: 'Este combo contiene una bandeja ovalada chica, un caliz con vela Loto y un Budita.' },
 ]
 
+/*
+Componente Catalogo:
+- Gestiona el estado de búsqueda y modal de imagen ampliada.
+- Filtra el listado de productos según el término ingresado.
+- Renderiza encabezado, buscador, grilla de combos y mensajes de resultado.
+*/
 const Catalogo = () => {
   const [selectedImage, setSelectedImage] = useState(null)
   const [searchTerm, setSearchTerm] = useState('')
-  const [showBackToTop, setShowBackToTop] = useState(false)
 
   const whatsappNumber = '+5492284569324'
 
@@ -52,25 +57,6 @@ const Catalogo = () => {
       return nombre.includes(termino) || descripcion.includes(termino)
     })
   }, [searchTerm])
-
-  const handleBackToTop = useCallback(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' })
-  }, [])
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrolledToBottom =
-        window.innerHeight + window.scrollY >= document.body.offsetHeight - 100
-      setShowBackToTop(scrolledToBottom)
-    }
-
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    handleScroll()
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll)
-    }
-  }, [])
 
   return (
     <div className="catalogo">
@@ -144,16 +130,6 @@ const Catalogo = () => {
           )}
         </div>
       </div>
-      {showBackToTop && (
-        <button
-          type="button"
-          className="back-to-top"
-          onClick={handleBackToTop}
-          aria-label="Volver al inicio de la página"
-        >
-          ↑
-        </button>
-      )}
     </div>
   )
 }

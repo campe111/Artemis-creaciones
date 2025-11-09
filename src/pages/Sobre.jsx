@@ -1,5 +1,11 @@
 import './Sobre.css'
 
+/*
+Componente Sobre:
+- Presenta la historia de la marca y su proceso creativo.
+- Expone los valores principales mediante tarjetas visuales.
+- Organiza el contenido en secciones alternadas con imágenes.
+*/
 const Sobre = () => {
   return (
     <div className="sobre">

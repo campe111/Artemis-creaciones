@@ -1,6 +1,11 @@
 import { Link } from 'react-router-dom'
 import './Footer.css'
 
+/*
+Componente Footer:
+- Resume identidad, navegación secundaria y datos de contacto.
+- Ofrece accesos directos a redes sociales y actualiza el año dinámicamente.
+*/
 const Footer = () => {
   return (
     <footer className="footer">

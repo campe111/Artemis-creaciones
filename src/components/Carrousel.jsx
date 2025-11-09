@@ -16,6 +16,12 @@ const IMAGE_FILES = [
   'การตกแต่งด้วยหิน.jpeg'
 ]
 
+/*
+Componente Carrousel:
+- Prepara las rutas de imágenes codificadas para evitar errores por espacios.
+- Controla el índice activo y el autoplay con pausa por interacción.
+- Ofrece navegación manual mediante flechas e indicadores.
+*/
 const Carrousel = ({ autoplayInterval = 5000 }) => {
   const images = useMemo(
     () => IMAGE_FILES.map((file) => encodeURI(`${IMAGE_PATH}${file}`)),
