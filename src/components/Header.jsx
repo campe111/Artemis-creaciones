@@ -48,17 +48,6 @@ const Header = () => {
           <p className="logo-subtitle">Creaciones Artesanales</p>
         </Link>
         <nav className={`nav ${menuOpen ? 'open' : ''}`}>
-          <a
-            href="#top"
-            className="nav-link nav-button"
-            onClick={(event) => {
-              event.preventDefault()
-              window.scrollTo({ top: 0, behavior: 'smooth' })
-              closeMenu()
-            }}
-          >
-            Ir al inicio
-          </a>
           <Link to="/" className={`nav-link ${isActive('/')}`} onClick={closeMenu}>
             Inicio
           </Link>
