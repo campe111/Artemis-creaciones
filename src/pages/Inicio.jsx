@@ -9,7 +9,7 @@ const Inicio = () => {
       <section 
         className="hero"
         style={{
-          backgroundImage: `linear-gradient(135deg, rgba(184, 93, 43, 0.4) 0%, rgba(139, 62, 33, 0.5) 100%), url('${heroImageUrl}')`
+          backgroundImage: `url('${heroImageUrl}')`
         }}
       >
         <div className="hero-overlay"></div>

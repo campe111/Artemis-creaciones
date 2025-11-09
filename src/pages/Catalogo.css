@@ -2,6 +2,12 @@
   min-height: calc(100vh - 200px);
 }
 
+.catalogo .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
 .catalogo-header {
   background: linear-gradient(135deg, rgba(184, 93, 43, 0.2) 0%, rgba(139, 62, 33, 0.2) 100%);
   padding: 4rem 0 3rem;
@@ -9,14 +15,14 @@
 }
 
 .catalogo-header h1 {
-  font-size: 3rem;
+  font-size: clamp(2.25rem, 4vw, 3rem);
   color: var(--color-dark-brown);
   margin: 0 0 1rem 0;
   font-weight: 600;
 }
 
 .catalogo-header p {
-  font-size: 1.2rem;
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
   color: var(--color-dark-brown);
   opacity: 0.9;
   margin: 0;
@@ -61,7 +67,7 @@
 
 .productos-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 2.5rem;
 }
 
@@ -240,7 +246,7 @@
 
 /* Móvil */
 @media (max-width: 768px) {
-  .container {
+  .catalogo .container {
     padding: 0 1.5rem;
   }
 
@@ -294,7 +300,7 @@
 
 /* Móvil pequeño */
 @media (max-width: 480px) {
-  .container {
+  .catalogo .container {
     padding: 0 1rem;
   }
 
