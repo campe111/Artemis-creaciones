@@ -1,17 +1,62 @@
+import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import './Inicio.css'
 
 const Inicio = () => {
-  const heroImageUrl = encodeURI('/images/descarga (8).jpeg')
+  const heroImages = useMemo(
+    () =>
+      [
+        '/images/photos-logo/descarga (8).jpeg',
+        '/images/photos-logo/descarga (9).jpeg',
+        '/images/photos-logo/descarga (10).jpeg',
+        '/images/photos-logo/descarga (11).jpeg',
+        '/images/photos-logo/descarga (12).jpeg',
+        '/images/photos-logo/descarga (13).jpeg',
+        '/images/photos-logo/descarga (14).jpeg',
+        '/images/photos-logo/descarga (15).jpeg',
+        '/images/photos-logo/Dheepan Ratnam (@Dheepanratnam) on X.jpeg',
+        '/images/photos-logo/Myanmar(Burma).jpeg',
+        '/images/photos-logo/การตกแต่งด้วยหิน.jpeg'
+      ].map((path) => encodeURI(path)),
+    []
+  )
+
+  const [currentSlide, setCurrentSlide] = useState(0)
+
+  useEffect(() => {
+    if (heroImages.length <= 1) return
+
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % heroImages.length)
+    }, 6000)
+
+    return () => clearInterval(interval)
+  }, [heroImages.length])
+
+  const goToSlide = (index) => {
+    if (heroImages.length === 0) return
+    setCurrentSlide((index + heroImages.length) % heroImages.length)
+  }
+
+  const handlePrev = () => goToSlide(currentSlide - 1)
+  const handleNext = () => goToSlide(currentSlide + 1)
   
   return (
     <div className="inicio">
-      <section 
-        className="hero"
-        style={{
-          backgroundImage: `url('${heroImageUrl}')`
-        }}
-      >
+      <section className="hero">
+        <div className="hero-slider" aria-hidden={heroImages.length <= 1}>
+          {heroImages.map((image, index) => (
+            <div
+              key={image}
+              className={`hero-slide ${index === currentSlide ? 'active' : ''}`}
+              role="img"
+              aria-label="Imagen destacada de Artemis"
+              aria-hidden={index !== currentSlide}
+            >
+              <img src={image} alt="" className="hero-slide-img" />
+            </div>
+          ))}
+        </div>
         <div className="hero-content">
           <h1 className="hero-title">Artemis</h1>
           <p className="hero-subtitle">Creaciones Artesanales en Yeso</p>
@@ -28,6 +73,32 @@ const Inicio = () => {
             </Link>
           </div>
         </div>
+        {heroImages.length > 1 && (
+          <>
+            <div className="hero-controls">
+              <button type="button" className="hero-control-btn prev" onClick={handlePrev} aria-label="Imagen anterior">
+                ‹
+              </button>
+              <button type="button" className="hero-control-btn next" onClick={handleNext} aria-label="Imagen siguiente">
+                ›
+              </button>
+            </div>
+            <div className="hero-dots" role="tablist" aria-label="Selector de imágenes destacadas">
+              {heroImages.map((_, index) => (
+                <button
+                  key={`dot-${index}`}
+                  type="button"
+                  role="tab"
+                  aria-selected={index === currentSlide}
+                  className={`hero-dot ${index === currentSlide ? 'active' : ''}`}
+                  onClick={() => goToSlide(index)}
+                >
+                  <span className="sr-only">Imagen {index + 1}</span>
+                </button>
+              ))}
+            </div>
+          </>
+        )}
       </section>
 
       <section className="features">
