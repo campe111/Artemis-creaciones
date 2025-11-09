@@ -12,7 +12,6 @@ const Inicio = () => {
           backgroundImage: `url('${heroImageUrl}')`
         }}
       >
-        <div className="hero-overlay"></div>
         <div className="hero-content">
           <h1 className="hero-title">Artemis</h1>
           <p className="hero-subtitle">Creaciones Artesanales en Yeso</p>
