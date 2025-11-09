@@ -23,7 +23,7 @@ const Catalogo = () => {
     { id: 14, nombre: 'Combo Maceta Black', categoria: 'combos', imagen: '/images/producto-14.jpeg', descripcion: 'Este combo contiene una maseta diamante grande.' },
     { id: 15, nombre: 'Combo Gratefully', categoria: 'combos', imagen: '/images/producto-15.jpeg', descripcion: 'Este combo contiene una bandeja ovalada chica, un difusor y una cascada con portavela.' },
     { id: 16, nombre: 'Combo Rosa Splash', categoria: 'combos', imagen: '/images/producto-16.jpeg', descripcion: 'Este combo contiene una bandeja ovalada chica, un difusor, caramelera y un portasahumerio de rosa.' },
-    { id: 17, nombre: 'Combo Alhajero Pico', categoria: 'combos', imagen: '/images/producto-18.jpeg', descripcion: 'Este combo contiene una bandeja ovalada chica, un florero con flores secas y un alhajero pico.' },
+    { id: 17, nombre: 'Combo Alhajero Pico', categoria: 'combos', imagen: '/images/producto-17.jpeg', descripcion: 'Este combo contiene una bandeja ovalada chica, un florero con flores secas y un alhajero pico.' },
     { id: 18, nombre: 'Combo Full Black', categoria: 'combos', imagen: '/images/producto-18.jpeg', descripcion: 'Este combo contiene una bandeja ovalada grande, un portasahumerio rosa, una caramelera y un portavela.' },
     { id: 19, nombre: 'Combo Rosaura Mistica', categoria: 'combos', imagen: '/images/producto-19.jpeg', descripcion: 'Este combo contiene una bandeja ovalada chica, una caramelera y un portasahumerio rosa.' },
     { id: 20, nombre: 'Combo Brisa Rosa', categoria: 'combos', imagen: '/images/producto-20.jpeg', descripcion: 'Este combo contiene una bandeja ovalada grande, un florero con flores secas,un difusor,un portasahumerio rosa y de regalo 1 paquete de sahumerios tiple empaste.' },
