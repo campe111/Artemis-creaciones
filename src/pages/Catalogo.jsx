@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useEffect, useCallback } from 'react'
 import './Catalogo.css'
 
 const PRODUCTOS = [
@@ -37,6 +37,7 @@ const PRODUCTOS = [
 const Catalogo = () => {
   const [selectedImage, setSelectedImage] = useState(null)
   const [searchTerm, setSearchTerm] = useState('')
+  const [showBackToTop, setShowBackToTop] = useState(false)
 
   const whatsappNumber = '+5492284569324'
 
@@ -51,6 +52,25 @@ const Catalogo = () => {
       return nombre.includes(termino) || descripcion.includes(termino)
     })
   }, [searchTerm])
+
+  const handleBackToTop = useCallback(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }, [])
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrolledToBottom =
+        window.innerHeight + window.scrollY >= document.body.offsetHeight - 100
+      setShowBackToTop(scrolledToBottom)
+    }
+
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    handleScroll()
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
 
   return (
     <div className="catalogo">
@@ -124,6 +144,16 @@ const Catalogo = () => {
           )}
         </div>
       </div>
+      {showBackToTop && (
+        <button
+          type="button"
+          className="back-to-top"
+          onClick={handleBackToTop}
+          aria-label="Volver al inicio de la página"
+        >
+          ↑
+        </button>
+      )}
     </div>
   )
 }
