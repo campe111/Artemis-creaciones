@@ -57,11 +57,12 @@ const Inicio = () => {
             </div>
           ))}
         </div>
+
         <div className="hero-content">
           <h1 className="hero-title">Artemis</h1>
           <p className="hero-subtitle">Creaciones Artesanales en Yeso</p>
           <p className="hero-description">
-            Piezas únicas moldeadas con dedicación y cuidado artesanal. 
+            Piezas únicas moldeadas con dedicación y cuidado artesanal.
             Cada creación cuenta una historia y transforma espacios con elegancia natural.
           </p>
           <div className="hero-buttons">
@@ -73,6 +74,7 @@ const Inicio = () => {
             </Link>
           </div>
         </div>
+
         {heroImages.length > 1 && (
           <>
             <div className="hero-controls">
