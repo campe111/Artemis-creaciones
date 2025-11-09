@@ -33,36 +33,42 @@
   background: var(--color-cream);
 }
 
-.filtros {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin-bottom: 3rem;
-  flex-wrap: wrap;
+.buscador {
+  max-width: 480px;
+  margin: 0 auto 3rem;
 }
 
-.filtro-btn {
-  padding: 0.75rem 2rem;
-  border: 2px solid var(--color-medium-brown);
-  background: white;
-  color: var(--color-dark-brown);
+.buscador-label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.buscador-input {
+  width: 100%;
+  padding: 0.9rem 1.25rem;
   border-radius: 50px;
+  border: 2px solid transparent;
+  background: white;
   font-size: 1rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.3s ease;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  color: var(--color-dark-brown);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
 }
 
-.filtro-btn:hover {
-  background: var(--color-medium-brown);
-  color: var(--color-cream);
-  transform: translateY(-2px);
+.buscador-input::placeholder {
+  color: rgba(59, 37, 25, 0.5);
 }
 
-.filtro-btn.active {
-  background: linear-gradient(135deg, var(--color-dark-brown) 0%, var(--color-medium-brown) 100%);
-  color: var(--color-cream);
-  border-color: var(--color-dark-brown);
+.buscador-input:focus {
+  outline: none;
+  border-color: var(--color-medium-brown);
+  box-shadow: 0 6px 20px rgba(139, 62, 33, 0.2);
 }
 
 .productos-grid {
@@ -121,14 +127,6 @@
   color: var(--color-dark-brown);
   margin: 0 0 0.5rem 0;
   font-weight: 600;
-}
-
-.producto-categoria {
-  font-size: 0.9rem;
-  color: var(--color-medium-brown);
-  text-transform: capitalize;
-  margin: 0 0 1rem 0;
-  font-style: italic;
 }
 
 .producto-descripcion {
@@ -274,14 +272,8 @@
     padding: 2rem 0;
   }
 
-  .filtros {
+  .buscador {
     margin-bottom: 2rem;
-    gap: 0.75rem;
-  }
-
-  .filtro-btn {
-    padding: 0.65rem 1.5rem;
-    font-size: 0.95rem;
   }
 
   .productos-grid {
@@ -324,15 +316,8 @@
     font-size: 1rem;
   }
 
-  .filtros {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0.5rem;
-  }
-
-  .filtro-btn {
-    width: 100%;
-    padding: 0.75rem;
+  .buscador {
+    margin-bottom: 1.5rem;
   }
 
   .productos-grid {
