@@ -38,13 +38,24 @@ const Header = () => {
   }, [location.pathname])
 
   return (
-    <header className="header">
+    <header id="top" className="header">
       <div className="header-container">
         <Link to="/" className="logo">
           <h1>🌿 Artemis</h1>
           <p className="logo-subtitle">Creaciones Artesanales</p>
         </Link>
         <nav className={`nav ${menuOpen ? 'open' : ''}`}>
+          <a
+            href="#top"
+            className="nav-link nav-button"
+            onClick={(event) => {
+              event.preventDefault()
+              window.scrollTo({ top: 0, behavior: 'smooth' })
+              closeMenu()
+            }}
+          >
+            Ir al inicio
+          </a>
           <Link to="/" className={`nav-link ${isActive('/')}`} onClick={closeMenu}>
             Inicio
           </Link>
@@ -58,7 +69,11 @@ const Header = () => {
             Contacto
           </Link>
         </nav>
-        <button className="menu-toggle" aria-label="Menú" onClick={toggleMenu}>
+        <button
+          className={`menu-toggle ${menuOpen ? 'active' : ''}`}
+          aria-label="Menú"
+          onClick={toggleMenu}
+        >
           <span></span>
           <span></span>
           <span></span>
