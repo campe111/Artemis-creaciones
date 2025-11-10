@@ -1,6 +1,8 @@
 import { useEffect, useMemo, useState } from 'react'
+import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import './Inicio.css'
+import { trackEvent } from '../utils/analytics'
 
 /*
 Componente Inicio:
@@ -49,6 +51,13 @@ const Inicio = () => {
   
   return (
     <div className="inicio">
+      <Helmet>
+        <title>Artemis | Creaciones Artesanales en Yeso</title>
+        <meta
+          name="description"
+          content="Descubre Artemis, la marca de creaciones artesanales en yeso con combos únicos, diseños exclusivos y materiales naturales."
+        />
+      </Helmet>
       <section className="hero">
         <div className="hero-slider" aria-hidden={heroImages.length <= 1}>
           {heroImages.map((image, index) => (
@@ -59,7 +68,12 @@ const Inicio = () => {
               aria-label="Imagen destacada de Artemis"
               aria-hidden={index !== currentSlide}
             >
-              <img src={image} alt="" className="hero-slide-img" />
+              <img
+                src={image}
+                alt=""
+                className="hero-slide-img"
+                loading={index === 0 ? 'eager' : 'lazy'}
+              />
             </div>
           ))}
         </div>
@@ -72,10 +86,18 @@ const Inicio = () => {
             Cada creación cuenta una historia y transforma espacios con elegancia natural.
           </p>
           <div className="hero-buttons">
-            <Link to="/catalogo" className="btn btn-primary">
+            <Link
+              to="/catalogo"
+              className="btn btn-primary"
+              onClick={() => trackEvent('inicio_cta_catalogo')}
+            >
               Ver Catálogo
             </Link>
-            <Link to="/sobre" className="btn btn-secondary">
+            <Link
+              to="/sobre"
+              className="btn btn-secondary"
+              onClick={() => trackEvent('inicio_cta_sobre')}
+            >
               Conoce más
             </Link>
           </div>

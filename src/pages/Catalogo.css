@@ -158,6 +158,18 @@
   box-shadow: 0 4px 15px rgba(139, 62, 33, 0.3);
 }
 
+.btn-producto-secondary {
+  margin-top: 0.85rem;
+  background: transparent;
+  border: 2px solid var(--color-medium-brown);
+  color: var(--color-medium-brown);
+}
+
+.btn-producto-secondary:hover {
+  background: rgba(139, 62, 33, 0.08);
+  box-shadow: none;
+}
+
 /* Modal de imagen */
 .image-modal {
   position: fixed;

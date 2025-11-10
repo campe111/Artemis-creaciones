@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async'
 import './Sobre.css'
 
 /*
@@ -9,6 +10,13 @@ Componente Sobre:
 const Sobre = () => {
   return (
     <div className="sobre">
+      <Helmet>
+        <title>Sobre Artemis | Artesanía en Yeso</title>
+        <meta
+          name="description"
+          content="Conoce la historia, el proceso y los valores de Artemis, la marca dedicada a crear piezas artesanales en yeso."
+        />
+      </Helmet>
       <div className="sobre-header">
         <div className="container">
           <h1>Sobre Artemis</h1>

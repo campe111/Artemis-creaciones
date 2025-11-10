@@ -76,7 +76,7 @@ const Carrousel = ({ autoplayInterval = 5000 }) => {
         <div className="track" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
           {images.map((src, index) => (
             <div className="slide" key={src} aria-hidden={currentIndex !== index}>
-              <img src={src} alt={`Carrusel ${index + 1}`} />
+              <img src={src} alt={`Carrusel ${index + 1}`} loading={index === 0 ? 'eager' : 'lazy'} />
             </div>
           ))}
         </div>

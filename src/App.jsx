@@ -4,6 +4,7 @@ import { useEffect } from 'react'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import BackToTopButton from './components/BackToTopButton'
+import FloatingWhatsApp from './components/FloatingWhatsApp'
 import Inicio from './pages/Inicio'
 import Catalogo from './pages/Catalogo'
 import Sobre from './pages/Sobre'
@@ -37,6 +38,7 @@ function App() {
         </main>
         <Footer />
         <BackToTopButton />
+        <FloatingWhatsApp />
       </div>
     </Router>
   )

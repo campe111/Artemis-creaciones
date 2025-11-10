@@ -1,5 +1,7 @@
 import { useState } from 'react'
+import { Helmet } from 'react-helmet-async'
 import './Contacto.css'
+import { trackEvent } from '../utils/analytics'
 
 /*
 Componente Contacto:
@@ -26,6 +28,7 @@ const Contacto = () => {
     e.preventDefault()
     console.log('Formulario enviado:', formData)
     alert('¡Gracias por tu mensaje! Te contactaremos pronto.')
+    trackEvent('contacto_formulario_enviado')
     setFormData({
       nombre: '',
       email: '',
@@ -36,6 +39,13 @@ const Contacto = () => {
 
   return (
     <div className="contacto">
+      <Helmet>
+        <title>Contacto | Artemis Creaciones</title>
+        <meta
+          name="description"
+          content="Escríbenos para consultas sobre piezas artesanales en yeso, pedidos personalizados o colaboraciones con Artemis."
+        />
+      </Helmet>
       <div className="contacto-header">
         <div className="container">
           <h1>Contacto</h1>
