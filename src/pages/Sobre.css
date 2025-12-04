@@ -4,14 +4,14 @@
 
 .sobre-header {
   background: linear-gradient(135deg, rgba(184, 93, 43, 0.2) 0%, rgba(139, 62, 33, 0.2) 100%);
-  padding: 4rem 0 3rem;
+  padding: 2rem 0 1.5rem;
   text-align: center;
 }
 
 .sobre-header h1 {
   font-size: 3rem;
   color: var(--color-dark-brown);
-  margin: 0 0 0.5rem 0;
+  margin: 0 0 0.4rem 0;
   font-weight: 600;
 }
 
@@ -156,7 +156,7 @@
   }
 
   .sobre-header {
-    padding: 3rem 0 2rem;
+    padding: 1.5rem 0 1.25rem;
   }
 
   .sobre-header h1 {
@@ -211,7 +211,7 @@
   }
 
   .sobre-header {
-    padding: 2.5rem 0 1.5rem;
+    padding: 1.25rem 0 1rem;
   }
 
   .sobre-header h1 {
