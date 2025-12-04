@@ -22,7 +22,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  z-index: 0;
+  z-index: 2;
   pointer-events: none;
 }
 
@@ -37,105 +37,62 @@
 .hero-slider {
   position: absolute;
   inset: 0;
-  z-index: 0;
+  z-index: 1;
+  display: flex;
+  overflow: hidden;
+  /* Optional: Add a subtle mask to fade edges if desired, but for full width usually not needed */
 }
 
-.hero-slide {
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-  transform: scale(1.02);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+.hero-slider-track {
+  display: flex;
+  height: 100%;
+  width: max-content;
+  animation: scroll 60s linear infinite;
 }
 
-.hero-slide.active {
-  opacity: 1;
-  transform: scale(1);
+.hero-slide-item {
+  height: 100%;
+  flex: 0 0 auto;
+  /* Ensure images are wide enough to not look like thin strips if they are portrait */
+  min-width: 300px;
 }
 
 .hero-slide-img {
-  width: 100%;
+  width: auto;
   height: 100%;
   object-fit: cover;
-  filter: saturate(0.98);
-  transform: scale(1.05);
-  transition: transform 1.8s ease;
+  /* Or contain if strictly requested, but cover looks better for background flow */
+  display: block;
 }
 
-.hero-slide.active .hero-slide-img {
-  transform: scale(1);
+/* Pause animation on hover if desired, but for background usually not */
+/* .hero-slider:hover .hero-slider-track {
+  animation-play-state: paused;
+} */
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 .hero-content {
   position: relative;
-  z-index: 2;
+  z-index: 10;
   text-align: center;
   color: var(--color-cream);
   max-width: min(620px, 85%);
   padding: clamp(1.75rem, 3vw, 2.5rem);
   background: rgba(20, 12, 6, 0.25);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border-radius: 24px;
   box-shadow: 0 20px 44px rgba(0, 0, 0, 0.22);
   border: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.hero-controls {
-  position: absolute;
-  bottom: clamp(1.5rem, 3vw, 2.5rem);
-  right: 50%;
-  transform: translateX(50%);
-  display: flex;
-  gap: 1.25rem;
-  z-index: 2;
-}
-
-.hero-control-btn {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.45);
-  background: rgba(20, 20, 20, 0.4);
-  color: var(--color-cream);
-  font-size: 1.8rem;
-  line-height: 0;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
-}
-
-.hero-control-btn:hover {
-  transform: translateY(-2px);
-  background: rgba(20, 20, 20, 0.55);
-  border-color: rgba(255, 255, 255, 0.65);
-}
-
-.hero-dots {
-  position: absolute;
-  bottom: clamp(1rem, 2vw, 2rem);
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 0.75rem;
-  z-index: 2;
-}
-
-.hero-dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.3);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  cursor: pointer;
-  transition: transform 0.3s ease, background 0.3s ease;
-}
-
-.hero-dot.active {
-  transform: scale(1.2);
-  background: var(--color-cream);
-  border-color: rgba(255, 255, 255, 0.55);
 }
 
 .hero-title {
@@ -172,7 +129,7 @@
   justify-content: center;
   flex-wrap: wrap;
   position: relative;
-  z-index: 2;
+  z-index: 10;
 }
 
 .sr-only {
@@ -522,4 +479,3 @@
     border-radius: 0;
   }
 }
-

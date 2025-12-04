@@ -29,26 +29,6 @@ const Inicio = () => {
     []
   )
 
-  const [currentSlide, setCurrentSlide] = useState(0)
-
-  useEffect(() => {
-    if (heroImages.length <= 1) return
-
-    const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % heroImages.length)
-    }, 6000)
-
-    return () => clearInterval(interval)
-  }, [heroImages.length])
-
-  const goToSlide = (index) => {
-    if (heroImages.length === 0) return
-    setCurrentSlide((index + heroImages.length) % heroImages.length)
-  }
-
-  const handlePrev = () => goToSlide(currentSlide - 1)
-  const handleNext = () => goToSlide(currentSlide + 1)
-  
   return (
     <div className="inicio">
       <Helmet>
@@ -59,25 +39,22 @@ const Inicio = () => {
         />
       </Helmet>
       <section className="hero">
-        <div className="hero-slider" aria-hidden={heroImages.length <= 1}>
-          {heroImages.map((image, index) => (
-            <div
-              key={image}
-              className={`hero-slide ${index === currentSlide ? 'active' : ''}`}
-              role="img"
-              aria-label="Imagen destacada de Artemis"
-              aria-hidden={index !== currentSlide}
-            >
-              <img
-                src={image}
-                alt=""
-                className="hero-slide-img"
-                loading={index === 0 ? 'eager' : 'lazy'}
-              />
-            </div>
-          ))}
+        <div className="hero-slider">
+          <div className="hero-slider-track">
+            {/* Duplicamos las imágenes para el efecto infinito */}
+            {[...heroImages, ...heroImages].map((image, index) => (
+              <div key={`${image}-${index}`} className="hero-slide-item">
+                <img
+                  src={image}
+                  alt=""
+                  className="hero-slide-img"
+                  loading="eager"
+                />
+              </div>
+            ))}
+          </div>
         </div>
-
+      
         <div className="hero-content">
           <h1 className="hero-title">Artemis</h1>
           <p className="hero-subtitle">Creaciones Artesanales en Yeso</p>
@@ -102,33 +79,6 @@ const Inicio = () => {
             </Link>
           </div>
         </div>
-
-        {heroImages.length > 1 && (
-          <>
-            <div className="hero-controls">
-              <button type="button" className="hero-control-btn prev" onClick={handlePrev} aria-label="Imagen anterior">
-                ‹
-              </button>
-              <button type="button" className="hero-control-btn next" onClick={handleNext} aria-label="Imagen siguiente">
-                ›
-              </button>
-            </div>
-            <div className="hero-dots" role="tablist" aria-label="Selector de imágenes destacadas">
-              {heroImages.map((_, index) => (
-                <button
-                  key={`dot-${index}`}
-                  type="button"
-                  role="tab"
-                  aria-selected={index === currentSlide}
-                  className={`hero-dot ${index === currentSlide ? 'active' : ''}`}
-                  onClick={() => goToSlide(index)}
-                >
-                  <span className="sr-only">Imagen {index + 1}</span>
-                </button>
-              ))}
-            </div>
-          </>
-        )}
       </section>
 
       <section className="features">
