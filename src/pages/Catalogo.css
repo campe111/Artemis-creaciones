@@ -10,14 +10,14 @@
 
 .catalogo-header {
   background: linear-gradient(135deg, rgba(184, 93, 43, 0.2) 0%, rgba(139, 62, 33, 0.2) 100%);
-  padding: 4rem 0 3rem;
+  padding: 2rem 0 1.5rem;
   text-align: center;
 }
 
 .catalogo-header h1 {
   font-size: clamp(2.25rem, 4vw, 3rem);
   color: var(--color-dark-brown);
-  margin: 0 0 1rem 0;
+  margin: 0 0 0.5rem 0;
   font-weight: 600;
 }
 
@@ -29,7 +29,7 @@
 }
 
 .catalogo-content {
-  padding: 3rem 0;
+  padding: 1.5rem 0 3rem;
   background: var(--color-cream);
 }
 
@@ -95,7 +95,7 @@
 .producto-imagen {
   width: 100%;
   height: 250px;
-  background: linear-gradient(135deg, rgba(184, 93, 43, 0.1) 0%, rgba(139, 62, 33, 0.1) 100%);
+  background: linear-gradient(135deg, var(--color-light-brown) 0%, var(--color-medium-brown) 50%, var(--color-dark-brown) 100%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -107,7 +107,7 @@
 .producto-img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   transition: transform 0.3s ease;
 }
 
@@ -269,7 +269,7 @@
   }
 
   .catalogo-header {
-    padding: 3rem 0 2rem;
+    padding: 1.5rem 0 1.25rem;
   }
 
   .catalogo-header h1 {
@@ -281,7 +281,7 @@
   }
 
   .catalogo-content {
-    padding: 2rem 0;
+    padding: 1rem 0 2rem;
   }
 
   .buscador {
@@ -317,7 +317,7 @@
   }
 
   .catalogo-header {
-    padding: 2.5rem 0 1.5rem;
+    padding: 1.25rem 0 1rem;
   }
 
   .catalogo-header h1 {

@@ -1,9 +1,9 @@
 .back-to-top {
   --offset-y: 0px;
   position: fixed;
-  left: 50%;
+  right: 2rem;
   bottom: calc(2.5rem + env(safe-area-inset-bottom, 0px));
-  transform: translate(-50%, var(--offset-y));
+  transform: translateY(var(--offset-y));
   display: inline-flex;
   align-items: center;
   gap: 0.65rem;
@@ -55,6 +55,7 @@
 
 @media (max-width: 1024px) {
   .back-to-top {
+    right: 1.5rem;
     bottom: calc(2rem + env(safe-area-inset-bottom, 0px));
     min-width: 8.5rem;
     max-width: calc(100vw - 3rem);
@@ -75,6 +76,7 @@
 
 @media (max-width: 768px) {
   .back-to-top {
+    right: 1.25rem;
     bottom: calc(1.75rem + env(safe-area-inset-bottom, 0px));
     min-width: 8.25rem;
     max-width: calc(100vw - 2.5rem);
@@ -95,6 +97,7 @@
 
 @media (max-width: 480px) {
   .back-to-top {
+    right: 1rem;
     bottom: calc(1.25rem + env(safe-area-inset-bottom, 0px));
     min-width: min(82vw, 8.5rem);
     padding: 0.68rem 1.15rem;

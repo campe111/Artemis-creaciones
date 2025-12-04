@@ -113,7 +113,7 @@ const Carrousel = ({ autoplayInterval = 5000 }) => {
         .viewport {
           flex: 1;
           overflow: hidden;
-          border-radius: 24px;
+          border-radius: 0;
           box-shadow: 0 20px 45px rgba(0, 0, 0, 0.22);
           background: #000;
         }
