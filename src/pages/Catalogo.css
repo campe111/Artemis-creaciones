@@ -94,8 +94,11 @@
 
 .producto-imagen {
   width: 100%;
-  height: 250px;
-  background: linear-gradient(135deg, var(--color-light-brown) 0%, var(--color-medium-brown) 50%, var(--color-dark-brown) 100%);
+  height: 200px;
+  background-image: var(--producto-imagen);
+  background-size: 33.33% 100%;
+  background-position: center;
+  background-repeat: repeat-x;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -104,11 +107,39 @@
   cursor: pointer;
 }
 
+.producto-imagen::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: var(--producto-imagen);
+  background-size: 33.33% 100%;
+  background-position: center;
+  background-repeat: repeat-x;
+  z-index: 0;
+}
+
+.producto-imagen::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 0;
+}
+
 .producto-img {
   width: 100%;
   height: 100%;
   object-fit: contain;
+  object-position: center;
   transition: transform 0.3s ease;
+  position: relative;
+  z-index: 1;
 }
 
 .producto-card:hover .producto-img {

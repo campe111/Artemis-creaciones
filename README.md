@@ -131,8 +131,66 @@ El sitio está completamente optimizado para:
 
 ---
 
+## 📧 Configuración del Formulario de Contacto
+
+El formulario de contacto utiliza **EmailJS** para enviar emails directamente desde el frontend. Para configurarlo:
+
+### Pasos de configuración:
+
+1. **Crear cuenta en EmailJS:**
+   - Ve a [https://www.emailjs.com/](https://www.emailjs.com/)
+   - Crea una cuenta gratuita (plan gratuito: 200 emails/mes)
+
+2. **Configurar servicio de email:**
+   - En el dashboard, ve a "Email Services"
+   - Conecta tu servicio de email (Gmail recomendado)
+   - Guarda el **Service ID**
+
+3. **Crear template de email:**
+   - Ve a "Email Templates"
+   - Crea un nuevo template con estos campos:
+     ```
+     To Email: {{to_email}}
+     From Name: {{from_name}}
+     From Email: {{from_email}}
+     Reply To: {{reply_to}}
+     Subject: Nuevo mensaje de contacto - Artemis Creaciones
+     
+     Mensaje:
+     Nombre: {{from_name}}
+     Email: {{from_email}}
+     Teléfono: {{telefono}}
+     
+     Mensaje:
+     {{message}}
+     ```
+   - Guarda el **Template ID**
+
+4. **Obtener Public Key:**
+   - Ve a "Account" > "General"
+   - Copia tu **Public Key**
+
+5. **Configurar variables de entorno:**
+   - Copia `.env.example` a `.env`
+   - Completa las credenciales:
+     ```env
+     VITE_EMAILJS_SERVICE_ID=tu_service_id
+     VITE_EMAILJS_TEMPLATE_ID=tu_template_id
+     VITE_EMAILJS_PUBLIC_KEY=tu_public_key
+     ```
+
+6. **Configurar en Vercel (para producción):**
+   - Ve a tu proyecto en Vercel
+   - Settings > Environment Variables
+   - Agrega las tres variables con los mismos nombres
+
+**Nota:** El email se enviará a `artemisolavarria@gmail.com` automáticamente.
+
+---
+
 ## 📝 Próximas mejoras
 
+- [x] Formulario de contacto con envío de email
 - [ ] Integración con base de datos para productos
 - [ ] Sistema de carrito de compras
 - [ ] Galería de imágenes reales

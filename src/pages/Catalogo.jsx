@@ -90,6 +90,7 @@ const Catalogo = () => {
               <div key={producto.id} className="producto-card">
                 <div 
                   className="producto-imagen"
+                  style={{ '--producto-imagen': `url(${producto.imagen})` }}
                   onClick={() => setSelectedImage(producto.imagen)}
                 >
                   <img src={producto.imagen} alt={producto.nombre} className="producto-img" loading="lazy" />

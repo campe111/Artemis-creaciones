@@ -1,5 +1,6 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Helmet } from 'react-helmet-async'
+import emailjs from '@emailjs/browser'
 import './Contacto.css'
 import { trackEvent } from '../utils/analytics'
 
@@ -16,25 +17,88 @@ const Contacto = () => {
     telefono: '',
     mensaje: ''
   })
+  const [isLoading, setIsLoading] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState(null) // 'success', 'error', null
+
+  // Inicializar EmailJS
+  useEffect(() => {
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'qT6TwPgR6Z5FL0jpb'
+    emailjs.init(publicKey)
+  }, [])
 
   const handleChange = (e) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
     })
+    // Limpiar mensaje de estado al escribir
+    if (submitStatus) {
+      setSubmitStatus(null)
+    }
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    console.log('Formulario enviado:', formData)
-    alert('¡Gracias por tu mensaje! Te contactaremos pronto.')
-    trackEvent('contacto_formulario_enviado')
-    setFormData({
-      nombre: '',
-      email: '',
-      telefono: '',
-      mensaje: ''
-    })
+    setIsLoading(true)
+    setSubmitStatus(null)
+
+    // Configuración de EmailJS
+    // Se pueden configurar mediante variables de entorno o usar los valores por defecto
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID || 'service_drdjjzk'
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'template_241ae3s'
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'qT6TwPgR6Z5FL0jpb'
+
+    // Preparar los parámetros del template
+    // Asegúrate de que estos nombres coincidan con las variables en tu template de EmailJS
+    const templateParams = {
+      to_email: 'artemisolavarria@gmail.com',
+      from_name: formData.nombre,
+      from_email: formData.email,
+      user_email: formData.email, // Algunos templates usan user_email
+      user_name: formData.nombre, // Algunos templates usan user_name
+      telefono: formData.telefono || 'No proporcionado',
+      phone: formData.telefono || 'No proporcionado', // Algunos templates usan phone
+      message: formData.mensaje,
+      user_message: formData.mensaje, // Algunos templates usan user_message
+      reply_to: formData.email
+    }
+
+    try {
+      // Enviar email usando EmailJS
+      const response = await emailjs.send(serviceId, templateId, templateParams, publicKey)
+      console.log('Email enviado exitosamente:', response)
+
+      // Éxito
+      setSubmitStatus('success')
+      trackEvent('contacto_formulario_enviado')
+      
+      // Limpiar formulario
+      setFormData({
+        nombre: '',
+        email: '',
+        telefono: '',
+        mensaje: ''
+      })
+
+      // Limpiar mensaje de éxito después de 5 segundos
+      setTimeout(() => {
+        setSubmitStatus(null)
+      }, 5000)
+    } catch (error) {
+      console.error('Error al enviar el formulario:', error)
+      console.error('Detalles del error:', {
+        status: error?.status,
+        text: error?.text,
+        serviceId,
+        templateId,
+        publicKey: publicKey ? 'configurado' : 'no configurado',
+        templateParams
+      })
+      setSubmitStatus('error')
+      trackEvent('contacto_formulario_error')
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   return (
@@ -132,6 +196,17 @@ const Contacto = () => {
             <div className="contacto-form-container">
               <h2>Envíanos un Mensaje</h2>
               <form className="contacto-form" onSubmit={handleSubmit}>
+                {submitStatus === 'success' && (
+                  <div className="form-message form-message-success">
+                    ✅ ¡Gracias por tu mensaje! Te contactaremos pronto.
+                  </div>
+                )}
+                {submitStatus === 'error' && (
+                  <div className="form-message form-message-error">
+                    ❌ Hubo un error al enviar tu mensaje. Por favor, intenta nuevamente o contáctanos directamente por email.
+                  </div>
+                )}
+                
                 <div className="form-group">
                   <label htmlFor="nombre">Nombre completo</label>
                   <input
@@ -141,6 +216,7 @@ const Contacto = () => {
                     value={formData.nombre}
                     onChange={handleChange}
                     required
+                    disabled={isLoading}
                     placeholder="Tu nombre"
                   />
                 </div>
@@ -154,6 +230,7 @@ const Contacto = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
+                    disabled={isLoading}
                     placeholder="tu@email.com"
                   />
                 </div>
@@ -166,6 +243,7 @@ const Contacto = () => {
                     name="telefono"
                     value={formData.telefono}
                     onChange={handleChange}
+                    disabled={isLoading}
                     placeholder="011 1234-5678"
                   />
                 </div>
@@ -178,13 +256,14 @@ const Contacto = () => {
                     value={formData.mensaje}
                     onChange={handleChange}
                     required
+                    disabled={isLoading}
                     rows="6"
                     placeholder="Escribe tu mensaje aquí..."
                   ></textarea>
                 </div>
 
-                <button type="submit" className="btn-submit">
-                  Enviar Mensaje
+                <button type="submit" className="btn-submit" disabled={isLoading}>
+                  {isLoading ? 'Enviando...' : 'Enviar Mensaje'}
                 </button>
               </form>
             </div>
